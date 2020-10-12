@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class PostsService {
+
 // check to make sure the url is correct - should be the path to the database
   myPostsURL: string = "http://localhost:3000/api/posts"
   private posts: Post[]= [];
@@ -16,7 +17,6 @@ export class PostsService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  
 
   // get a list of all jobs where jobs deleted is false
   getPosts() {
@@ -55,7 +55,7 @@ export class PostsService {
         }
 
         getPostsEmployee(employeeId: string) {
-          this.http.get<{message: string, posts: Post[] }>('http://localhost:3000/api/posts/employee/' + employeeId)
+          this.http.get<{message: string, posts: Post[]}>('http://localhost:3000/api/posts/employee/' + employeeId)
           .subscribe((postData) => {
               this.posts = postData.posts
               this.postsUpdated.next([...this.posts])
@@ -112,7 +112,7 @@ export class PostsService {
     })
 }
 
-updatePost(id: string, 
+updatePost(id: string,
   businessName: string,
   contactFirstName: string,
   contactLastName: string,
@@ -143,9 +143,9 @@ removePost(id: string): Observable<any> {
 
 completePost(id: string): Observable<any> {
   return this.http
-   .delete<any>("http://localhost:3000/api/posts/complete/" + id)
+    .delete<any>("http://localhost:3000/api/posts/complete/" + id)
  }
- 
+
 
 }
 

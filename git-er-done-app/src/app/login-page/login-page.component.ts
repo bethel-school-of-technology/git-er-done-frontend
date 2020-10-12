@@ -24,7 +24,7 @@ export class LoginPageComponent implements OnInit {
       form.value.employeeLastName,
       form.value.employeeCellNumber,
       form.value.employeeID);{
-        this.router.navigate(['my-jobs'])
+        this.router.navigate(['all-jobs'])
       }
   }
 
