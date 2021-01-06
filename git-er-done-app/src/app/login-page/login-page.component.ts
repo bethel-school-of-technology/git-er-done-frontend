@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router'
+import { BoundAttribute } from '@angular/compiler/src/render3/r3_ast';
 
 
 @Component({
@@ -11,6 +12,7 @@ import { Router } from '@angular/router'
 })
 export class LoginPageComponent implements OnInit {
   isLoading = false;
+  
 
   constructor(public authService: AuthService, public router: Router ) { }
 
